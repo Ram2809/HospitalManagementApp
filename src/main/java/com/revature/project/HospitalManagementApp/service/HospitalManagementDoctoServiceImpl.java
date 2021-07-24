@@ -13,9 +13,11 @@ public class HospitalManagementDoctoServiceImpl implements HospitalManagementDoc
 	public void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		hosDocDAOImpl.updateDoctorDetails(hosDocCenter);
 	}
+
 	public void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		hosDocDAOImpl.deleteDoctorDetails(hosDocCenter);
 	}
+
 	public void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		hosDocDAOImpl.getDoctorDetails(hosDocCenter);
 	}

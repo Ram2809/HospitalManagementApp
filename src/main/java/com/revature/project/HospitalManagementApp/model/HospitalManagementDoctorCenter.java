@@ -8,6 +8,7 @@ public class HospitalManagementDoctorCenter {
 	private String doctorSpecialization;
 	private Integer fromTiming;
 	private Integer toTiming;
+
 	public Double getDoctorSalary() {
 		return doctorSalary;
 	}
@@ -17,6 +18,7 @@ public class HospitalManagementDoctorCenter {
 	}
 
 	private Double doctorSalary;
+
 	public Integer getDoctorId() {
 		return doctorId;
 	}

@@ -1,16 +1,22 @@
 package com.revature.project.HospitalManagementApp.dao;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
-public class HospitalManagementPatientDAOImpl implements HospitalManagementPatientDAO{
+public class HospitalManagementPatientDAOImpl implements HospitalManagementPatientDAO {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	public void addPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
@@ -24,13 +30,14 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			pst.setString(5, hosPatientCenter.getDisease());
 			pst.setString(6, hosPatientCenter.getAdmitStatus());
 			pst.setLong(7, hosPatientCenter.getPatientPhoneNo());
-			pst.setInt(8,hosPatientCenter.getConsultantId());
+			pst.setInt(8, hosPatientCenter.getConsultantId());
 			long count = pst.executeUpdate();
 			System.out.println(count + " " + "rows inserted!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void updatePatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
@@ -104,9 +111,9 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 				break;
 			case 7:
 				System.out.println("Enter the new consultant id:");
-				Integer updateConsultantId =Integer.parseInt(br.readLine());
+				Integer updateConsultantId = Integer.parseInt(br.readLine());
 				pst = con.prepareStatement("UPDATE patient Set PConsultantId=? where PId=?");
-				pst.setDouble(1,updateConsultantId);
+				pst.setDouble(1, updateConsultantId);
 				pst.setInt(2, updateId);
 				pst.executeUpdate();
 				System.out.println("Rows updated");
@@ -118,5 +125,54 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			e.printStackTrace();
 		}
 
-}
+	}
+
+	public void deletePatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
+		try (Connection con = DBUtil.getConnection();) {
+			PreparedStatement pst = null;
+			String query = "DELETE FROM patient WHERE PId=?";
+			pst = con.prepareStatement(query);
+			System.out.println("Enter the patient id:");
+			Integer deleteId = Integer.parseInt(br.readLine());
+			pst.setInt(1, deleteId);
+			pst.executeUpdate();
+			System.out.println("Rows Deleted!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public List<HospitalManagementPatientCenter> getPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
+		List<HospitalManagementPatientCenter> patientList = new ArrayList<>();
+		try (Connection con = DBUtil.getConnection();) {
+			Statement st = con.createStatement();
+			String query = "SELECT * FROM patient";
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				patientList.add(new HospitalManagementPatientCenter(rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getInt(4), rs.getString(5), rs.getString(6), rs.getLong(7), rs.getInt(8)));
+				// System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3)+"
+				// "+rs.getInt(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getLong(7)+"
+				// "+rs.getInt(8));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return patientList;
+	}
+
+	public void getPatientReport(HospitalManagementPatientCenter hosPatientCenter) {
+		try (Connection con = DBUtil.getConnection();) {
+			Statement st = con.createStatement();
+			String query = "SELECT p.PId,p.PName,p.PAge,p.PGender,p.PDisease,p.PAdmitStatus,p.PContactNo,d.doc_name FROM patient p join doctor d on p.PConsultantId=d.doc_id";
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4)
+						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getLong(7) + " " + rs.getString(8));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

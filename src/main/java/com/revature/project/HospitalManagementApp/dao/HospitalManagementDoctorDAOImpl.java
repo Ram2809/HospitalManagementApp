@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.List;
 
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
@@ -26,7 +28,7 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			pst.setString(5, hosDocCenter.getDoctorSpecialization());
 			pst.setInt(6, hosDocCenter.getFromTiming());
 			pst.setInt(7, hosDocCenter.getToTiming());
-			pst.setDouble(8,hosDocCenter.getDoctorSalary());
+			pst.setDouble(8, hosDocCenter.getDoctorSalary());
 			long count = pst.executeUpdate();
 			System.out.println(count + " " + "rows inserted!");
 		} catch (Exception e) {
@@ -109,7 +111,7 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 				System.out.println("Enter the new salary:");
 				Double updateSalary = Double.parseDouble(br.readLine());
 				pst = con.prepareStatement("UPDATE doctor Set doc_salary=? where doc_id=?");
-				pst.setDouble(1,updateSalary);
+				pst.setDouble(1, updateSalary);
 				pst.setInt(2, updateId);
 				pst.executeUpdate();
 				System.out.println("Rows updated");
@@ -122,14 +124,15 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 		}
 
 	}
+
 	public void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			String query="DELETE FROM doctor WHERE doc_id=?";
-			pst=con.prepareStatement(query);
+			String query = "DELETE FROM doctor WHERE doc_id=?";
+			pst = con.prepareStatement(query);
 			System.out.println("Enter the doctor id:");
-			Integer deleteId=Integer.parseInt(br.readLine());			
-			pst.setInt(1,deleteId);
+			Integer deleteId = Integer.parseInt(br.readLine());
+			pst.setInt(1, deleteId);
 			pst.executeUpdate();
 			System.out.println("Rows Deleted!");
 		} catch (Exception e) {
@@ -137,14 +140,15 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 		}
 
 	}
+
 	public void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		try (Connection con = DBUtil.getConnection();) {
-			Statement st=con.createStatement();
-			String query="SELECT * FROM doctor";
-			ResultSet rs=st.executeQuery(query);
-			while(rs.next())
-			{
-				System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getInt(6)+" "+rs.getInt(7)+" "+rs.getDouble(8));
+			Statement st = con.createStatement();
+			String query = "SELECT * FROM doctor";
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4)
+						+ " " + rs.getString(5) + " " + rs.getInt(6) + " " + rs.getInt(7) + " " + rs.getDouble(8));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

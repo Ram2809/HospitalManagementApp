@@ -13,9 +13,11 @@ public class HospitalManagementDoctorController {
 	public void updateDoctorDetails(HospitalManagementDoctorCenter hosDoctorCenter) {
 		hosDocSerImpl.updateDoctorDetails(hosDoctorCenter);
 	}
+
 	public void deleteDoctorDetails(HospitalManagementDoctorCenter hosDoctorCenter) {
 		hosDocSerImpl.deleteDoctorDetails(hosDoctorCenter);
 	}
+
 	public void getDoctorDetails(HospitalManagementDoctorCenter hosDoctorCenter) {
 		hosDocSerImpl.getDoctorDetails(hosDoctorCenter);
 	}
