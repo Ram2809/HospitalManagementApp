@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.revature.project.HospitalManagementApp.controller.HospitalManagementPatientController;
@@ -63,11 +64,13 @@ public class HospitalManagementPatientApplication {
 		List<HospitalManagementPatientCenter> patientList = new ArrayList<HospitalManagementPatientCenter>();
 		System.out.println("------Retrieval--------------");
 		patientList = hosPatientController.getPatientDetails(hosPatientCenter);
-		System.out.println(patientList);
+		Iterator<HospitalManagementPatientCenter> patientListIterator = patientList.iterator();
+		while (patientListIterator.hasNext()) {
+			System.out.println(patientListIterator.next());
+		}
 	}
 
 	public static void getPatientReport() {
-		System.out.println("----------PatientReport----------");
 		hosPatientController.getPatientReport(hosPatientCenter);
 	}
 
@@ -79,6 +82,7 @@ public class HospitalManagementPatientApplication {
 		System.out.println("----------2.Updation----------");
 		System.out.println("----------3.Deletion----------");
 		System.out.println("----------4.Retrieval----------");
+		System.out.println("----------5.Patient Report----------");
 		System.out.println("Enter your choice:");
 		Integer userChoice = Integer.parseInt(br.readLine());
 		switch (userChoice) {

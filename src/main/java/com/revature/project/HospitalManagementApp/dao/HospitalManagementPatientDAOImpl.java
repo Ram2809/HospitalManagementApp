@@ -1,18 +1,16 @@
 package com.revature.project.HospitalManagementApp.dao;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
-import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
+import com.revature.project.HospitalManagementApp.exception.InvalidIdException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
@@ -164,12 +162,27 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 
 	public void getPatientReport(HospitalManagementPatientCenter hosPatientCenter) {
 		try (Connection con = DBUtil.getConnection();) {
-			Statement st = con.createStatement();
-			String query = "SELECT p.PId,p.PName,p.PAge,p.PGender,p.PDisease,p.PAdmitStatus,p.PContactNo,d.doc_name FROM patient p join doctor d on p.PConsultantId=d.doc_id";
-			ResultSet rs = st.executeQuery(query);
+			System.out.println("Enter the patient ID to get report:");
+			Integer patientId = Integer.parseInt(br.readLine());
+			if (patientId <= 100) {
+				throw new InvalidIdException("Enter the valid ID!");
+			}
+			System.out.println("----------PatientReport----------");
+			String query = "SELECT p.PId,p.PName,p.PAge,p.PGender,p.PDisease,p.PAdmitStatus,p.PContactNo,d.doc_id,d.doc_name,d.doc_specialist FROM patient p join doctor d on p.PConsultantId=d.doc_id where p.PId=?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, patientId);
+			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4)
-						+ " " + rs.getString(5) + " " + rs.getString(6) + " " + rs.getLong(7) + " " + rs.getString(8));
+				System.out.println("Patient ID: " + rs.getInt(1));
+				System.out.println("Patient Name: " + rs.getString(2));
+				System.out.println("Patient Age: " + rs.getInt(3));
+				System.out.println("Patient Gender:" + rs.getString(4));
+				System.out.println("Patient Disease: " + rs.getString(5));
+				System.out.println("Patient Admit Status: " + rs.getString(6));
+				System.out.println("Patient Contact Number: " + rs.getLong(7));
+				System.out.println("Doctor ID: " + rs.getInt(8));
+				System.out.println("Doctor Name: " + rs.getString(9));
+				System.out.println("Doctor Designation: " + rs.getString(10));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

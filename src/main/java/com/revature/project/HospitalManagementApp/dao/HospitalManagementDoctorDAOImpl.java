@@ -146,13 +146,16 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			Statement st = con.createStatement();
 			String query = "SELECT * FROM doctor";
 			ResultSet rs = st.executeQuery(query);
+			System.out.println("DoctorId" + " " + "DoctorName" + " " + "DoctorAge" + " " + "DoctorQualification" + " "
+					+ "DoctorSpecialization" + " " + "DoctorFromTiming" + " " + "DoctorToTiming" + " "
+					+ "DoctorSalary");
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4)
 						+ " " + rs.getString(5) + " " + rs.getInt(6) + " " + rs.getInt(7) + " " + rs.getDouble(8));
 			}
+//			DBTablePrinter.printTable(con,"doctor");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 }
