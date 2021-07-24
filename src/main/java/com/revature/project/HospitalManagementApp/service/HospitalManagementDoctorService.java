@@ -4,5 +4,8 @@ import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctor
 
 public interface HospitalManagementDoctorService {
 	void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+
 	void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 }

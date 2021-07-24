@@ -4,13 +4,19 @@ import com.revature.project.HospitalManagementApp.dao.HospitalManagementDoctorDA
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 
 public class HospitalManagementDoctoServiceImpl implements HospitalManagementDoctorService {
-	HospitalManagementDoctorDAOImpl hosDocDAOImpl=new HospitalManagementDoctorDAOImpl();
-	public void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter)
-	{
+	HospitalManagementDoctorDAOImpl hosDocDAOImpl = new HospitalManagementDoctorDAOImpl();
+
+	public void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		hosDocDAOImpl.addDoctorDetails(hosDocCenter);
 	}
-	public void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter)
-	{
+
+	public void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		hosDocDAOImpl.updateDoctorDetails(hosDocCenter);
+	}
+	public void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
+		hosDocDAOImpl.deleteDoctorDetails(hosDocCenter);
+	}
+	public void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
+		hosDocDAOImpl.getDoctorDetails(hosDocCenter);
 	}
 }
