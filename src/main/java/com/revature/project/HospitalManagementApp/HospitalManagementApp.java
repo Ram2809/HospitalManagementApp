@@ -10,7 +10,8 @@ import com.revature.project.HospitalManagementApp.exception.InvalidChoiceExcepti
 import com.revature.project.HospitalManagementApp.exception.NegativeNumberException;
 
 public class HospitalManagementApp {
-	public static void main(String[] args)throws NumberFormatException, IOException, InvalidChoiceException, NegativeNumberException {
+	public static void main(String[] args)
+			throws NumberFormatException, IOException, InvalidChoiceException, NegativeNumberException {
 		HospitalManagementDoctorApplication hosDoctorApp = new HospitalManagementDoctorApplication();
 		HospitalManagementPatientApplication hosPatientApp = new HospitalManagementPatientApplication();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

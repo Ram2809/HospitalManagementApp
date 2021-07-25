@@ -1,21 +1,40 @@
 package com.revature.project.HospitalManagementApp.dao;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import com.revature.project.HospitalManagementApp.exception.DoctorNotFoundException;
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
 public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctorDAO {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static List<Integer> doctorIdList = new ArrayList<Integer>();
+
+	public void getDoctorId() throws SQLException, IOException {
+		try (Connection con = DBUtil.getConnection();) {
+			Statement st = con.createStatement();
+			String query = "SELECT doc_id FROM doctor";
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				doctorIdList.add(rs.getInt(1));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		try (Connection con = DBUtil.getConnection();) {
@@ -43,6 +62,10 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			// System.out.println(count+" "+"rows inserted!");
 			System.out.println("Enter the doctor id:");
 			Integer updateId = Integer.parseInt(br.readLine());
+			getDoctorId();
+			if (!doctorIdList.contains(updateId)) {
+				throw new DoctorNotFoundException("Doctor Not found,Enter the valid doctor id!");
+			}
 			System.out.println("1.Update name");
 			System.out.println("2.Update age");
 			System.out.println("3.Update qualification");
@@ -132,8 +155,13 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			pst = con.prepareStatement(query);
 			System.out.println("Enter the doctor id:");
 			Integer deleteId = Integer.parseInt(br.readLine());
+			getDoctorId();
+			if (!doctorIdList.contains(deleteId)) {
+				throw new DoctorNotFoundException("Doctor Not found,Enter the valid doctor id!");
+			}
 			pst.setInt(1, deleteId);
 			pst.executeUpdate();
+			getDoctorId();
 			System.out.println("Rows Deleted!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,14 +174,15 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			Statement st = con.createStatement();
 			String query = "SELECT * FROM doctor";
 			ResultSet rs = st.executeQuery(query);
-			System.out.println("DoctorId" + " " + "DoctorName" + " " + "DoctorAge" + " " + "DoctorQualification" + " "
-					+ "DoctorSpecialization" + " " + "DoctorFromTiming" + " " + "DoctorToTiming" + " "
-					+ "DoctorSalary");
+			/*
+			 * System.out.println("DoctorId" + " " + "DoctorName" + " " + "DoctorAge" + " "
+			 * + "DoctorQualification" + " " + "DoctorSpecialization" + " " +
+			 * "DoctorFromTiming" + " " + "DoctorToTiming" + " " + "DoctorSalary");
+			 */
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4)
 						+ " " + rs.getString(5) + " " + rs.getInt(6) + " " + rs.getInt(7) + " " + rs.getDouble(8));
 			}
-//			DBTablePrinter.printTable(con,"doctor");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

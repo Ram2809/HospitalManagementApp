@@ -1,21 +1,41 @@
 package com.revature.project.HospitalManagementApp.dao;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import com.revature.project.HospitalManagementApp.exception.DoctorNotFoundException;
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.exception.InvalidIdException;
+import com.revature.project.HospitalManagementApp.exception.PatientNotFoundException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
 public class HospitalManagementPatientDAOImpl implements HospitalManagementPatientDAO {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static List<Integer> patientIdList = new ArrayList<Integer>();
+
+	public void getPatientId() throws SQLException, IOException {
+		try (Connection con = DBUtil.getConnection();) {
+			Statement st = con.createStatement();
+			String query = "SELECT PId FROM patient";
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				patientIdList.add(rs.getInt(1));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void addPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
 		try (Connection con = DBUtil.getConnection();) {
@@ -29,7 +49,9 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			pst.setString(6, hosPatientCenter.getAdmitStatus());
 			pst.setLong(7, hosPatientCenter.getPatientPhoneNo());
 			pst.setInt(8, hosPatientCenter.getConsultantId());
+			patientIdList.add(hosPatientCenter.getPatientId());
 			long count = pst.executeUpdate();
+			getPatientId();
 			System.out.println(count + " " + "rows inserted!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,6 +65,10 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			// System.out.println(count+" "+"rows inserted!");
 			System.out.println("Enter the patient id:");
 			Integer updateId = Integer.parseInt(br.readLine());
+			getPatientId();
+			if (!patientIdList.contains(updateId)) {
+				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
+			}
 			System.out.println("1.Update patient name");
 			System.out.println("2.Update patient gender");
 			System.out.println("3.Update patient age");
@@ -132,8 +158,13 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			pst = con.prepareStatement(query);
 			System.out.println("Enter the patient id:");
 			Integer deleteId = Integer.parseInt(br.readLine());
+			getPatientId();
+			if (!patientIdList.contains(deleteId)) {
+				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
+			}
 			pst.setInt(1, deleteId);
 			pst.executeUpdate();
+			getPatientId();
 			System.out.println("Rows Deleted!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -164,6 +195,10 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 		try (Connection con = DBUtil.getConnection();) {
 			System.out.println("Enter the patient ID to get report:");
 			Integer patientId = Integer.parseInt(br.readLine());
+			getPatientId();
+			if (!patientIdList.contains(patientId)) {
+				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
+			}
 			if (patientId <= 100) {
 				throw new InvalidIdException("Enter the valid ID!");
 			}
