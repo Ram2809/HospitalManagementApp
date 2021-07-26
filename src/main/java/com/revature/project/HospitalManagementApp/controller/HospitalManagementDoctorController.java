@@ -8,7 +8,7 @@ import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctor
 import com.revature.project.HospitalManagementApp.service.HospitalManagementDoctoServiceImpl;
 
 public class HospitalManagementDoctorController {
-	Logger logger=Logger.getLogger(HospitalManagementDoctorController.class);
+	Logger logger = Logger.getLogger(HospitalManagementDoctorController.class);
 	HospitalManagementDoctoServiceImpl hosDocSerImpl = new HospitalManagementDoctoServiceImpl();
 
 	public void addDoctorDetails(HospitalManagementDoctorCenter hosDoctorCenter) {
@@ -30,7 +30,9 @@ public class HospitalManagementDoctorController {
 		logger.info("In doctor service - get method");
 		return hosDocSerImpl.getDoctorDetails(hosDoctorCenter);
 	}
-	public List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDoctorCenter) {
+
+	public List<HospitalManagementDoctorCenter> getParticularDoctorDetails(
+			HospitalManagementDoctorCenter hosDoctorCenter) {
 		logger.info("In doctor service - getParticularDoctorDetails method");
 		return hosDocSerImpl.getParticularDoctorDetails(hosDoctorCenter);
 	}

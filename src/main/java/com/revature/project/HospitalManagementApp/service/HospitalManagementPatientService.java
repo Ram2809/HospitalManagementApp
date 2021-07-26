@@ -15,5 +15,6 @@ public interface HospitalManagementPatientService {
 	List<HospitalManagementPatientCenter> getPatientDetails(HospitalManagementPatientCenter hosPatientCenter);
 
 	void getPatientReport(HospitalManagementPatientCenter hosPatientCenter);
+
 	List<HospitalManagementPatientCenter> getParticularPatientDetails(HospitalManagementPatientCenter hosPatientCenter);
 }

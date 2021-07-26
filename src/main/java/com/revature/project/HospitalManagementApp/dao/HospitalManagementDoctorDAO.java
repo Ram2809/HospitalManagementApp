@@ -12,5 +12,6 @@ public interface HospitalManagementDoctorDAO {
 	void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 
 	List<HospitalManagementDoctorCenter> getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+
 	List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 }

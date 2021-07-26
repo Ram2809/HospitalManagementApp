@@ -9,7 +9,8 @@ import com.revature.project.HospitalManagementApp.model.HospitalManagementPatien
 
 public class HospitalManagementPatientServiceImpl implements HospitalManagementPatientService {
 	HospitalManagementPatientDAOImpl hosPatientDAOImpl = new HospitalManagementPatientDAOImpl();
-	Logger logger=Logger.getLogger(" HospitalManagementPatientServiceImpl.class");
+	Logger logger = Logger.getLogger(" HospitalManagementPatientServiceImpl.class");
+
 	public void addPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
 		logger.info("In patient DAO -> add method");
 		hosPatientDAOImpl.addPatientDetails(hosPatientCenter);
@@ -34,7 +35,9 @@ public class HospitalManagementPatientServiceImpl implements HospitalManagementP
 		logger.info("In patient DAO -> get patient report method");
 		hosPatientDAOImpl.getPatientReport(hosPatientCenter);
 	}
-	public List<HospitalManagementPatientCenter> getParticularPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
+
+	public List<HospitalManagementPatientCenter> getParticularPatientDetails(
+			HospitalManagementPatientCenter hosPatientCenter) {
 		logger.info("In patient DAO ->getParticularPatientDetails method");
 		return hosPatientDAOImpl.getParticularPatientDetails(hosPatientCenter);
 	}

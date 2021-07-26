@@ -2082,3 +2082,20 @@
 2021-07-26 22:46:20 INFO  HospitalManagementDoctorApplication:109 - In doctor controller -> get method
 2021-07-26 22:46:20 INFO  HospitalManagementDoctorController:30 - In doctor service - get method
 2021-07-26 22:46:20 INFO  class:29 - In doctor DAO -> get method
+2021-07-26 23:00:44 INFO  HospitalManagementDoctorApplication:113 - In doctor controller -> getParticularDoctordetails method
+2021-07-26 23:00:44 INFO  HospitalManagementDoctorController:36 - In doctor service - getParticularDoctorDetails method
+2021-07-26 23:00:44 INFO  class:36 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-26 23:01:16 INFO  HospitalManagementDoctorApplication:113 - In doctor controller -> getParticularDoctordetails method
+2021-07-26 23:01:16 INFO  HospitalManagementDoctorController:36 - In doctor service - getParticularDoctorDetails method
+2021-07-26 23:01:16 INFO  class:36 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-26 23:01:41 INFO  HospitalManagementPatientApplication:116 - In patient controller -> get patient report method
+2021-07-26 23:01:41 INFO  class:34 - In patient service - get patient report method
+2021-07-26 23:01:41 INFO  class:35 - In patient DAO -> get patient report method
+2021-07-26 23:01:44 INFO  class:194 - In patient DAO -> getPatientId() method
+2021-07-26 23:02:07 INFO  HospitalManagementPatientApplication:120 - In patient controller -> getParticularPatientdetails method
+2021-07-26 23:02:07 INFO  class:40 - In patient service - getParticularPatientDetails method
+2021-07-26 23:02:07 INFO  class:41 - In patient DAO ->getParticularPatientDetails method
+2021-07-26 23:02:11 INFO  class:230 - In patient DAO -> getPatientId() method
+2021-07-26 23:02:29 INFO  HospitalManagementPatientApplication:112 - In patient controller -> get method
+2021-07-26 23:02:29 INFO  class:29 - In patient service - get method
+2021-07-26 23:02:29 INFO  class:30 - In patient DAO ->get method

@@ -48,23 +48,19 @@ public class HospitalManagementPatientApplication {
 		hosPatientCenter.setAdmitStatus(admitStatus);
 		hosPatientCenter.setPatientPhoneNo(contactNo);
 		hosPatientCenter.setConsultantId(consultantId);
-		System.out.println("------Insertion--------------");
 		hosPatientController.addPatientDetails(hosPatientCenter);
 	}
 
 	public static void updatePatient() {
-		System.out.println("------Updation--------------");
 		hosPatientController.updatePatientDetails(hosPatientCenter);
 	}
 
 	public static void deletePatient() {
-		System.out.println("------Deletion--------------");
 		hosPatientController.deletePatientDetails(hosPatientCenter);
 	}
 
 	public static void getPatient() {
 		List<HospitalManagementPatientCenter> patientsList = new ArrayList<HospitalManagementPatientCenter>();
-		System.out.println("------Retrieval--------------");
 		patientsList = hosPatientController.getPatientDetails(hosPatientCenter);
 		Iterator<HospitalManagementPatientCenter> patientsListIterator = patientsList.iterator();
 		while (patientsListIterator.hasNext()) {
@@ -75,19 +71,21 @@ public class HospitalManagementPatientApplication {
 	public static void getPatientReport() {
 		hosPatientController.getPatientReport(hosPatientCenter);
 	}
+
 	private static void getParticularDoctor() {
 		List<HospitalManagementPatientCenter> patientList = new ArrayList<HospitalManagementPatientCenter>();
-		System.out.println("------------Patient Details---------------");
 		patientList = hosPatientController.getParticularPatientDetails(hosPatientCenter);
+		System.out.println("------------Patient Details---------------");
 		Iterator<HospitalManagementPatientCenter> patientListIterator = patientList.iterator();
 		while (patientListIterator.hasNext()) {
 			System.out.println(patientListIterator.next());
 		}
 	}
+
 	public static void main(String[] args)
 			throws InvalidChoiceException, NumberFormatException, IOException, NegativeNumberException {
 		// TODO Auto-generated method stub
-		Logger logger=Logger.getLogger(HospitalManagementPatientApplication.class);
+		Logger logger = Logger.getLogger(HospitalManagementPatientApplication.class);
 		System.out.println("----------PATIENT MANAGEMENT SYSTEM----------");
 		System.out.println("----------1.Insertion----------");
 		System.out.println("----------2.Updation----------");
@@ -126,6 +124,5 @@ public class HospitalManagementPatientApplication {
 			throw new InvalidChoiceException("Enter the valid choice!");
 		}
 	}
-
 
 }

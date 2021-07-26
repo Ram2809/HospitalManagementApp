@@ -13,7 +13,7 @@ import com.revature.project.HospitalManagementApp.exception.NegativeNumberExcept
 public class HospitalManagementApp {
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, NegativeNumberException {
-		Logger logger=Logger.getLogger("HospitalManagementApp.class");
+		Logger logger = Logger.getLogger("HospitalManagementApp.class");
 		HospitalManagementDoctorApplication hosDoctorApp = new HospitalManagementDoctorApplication();
 		HospitalManagementPatientApplication hosPatientApp = new HospitalManagementPatientApplication();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

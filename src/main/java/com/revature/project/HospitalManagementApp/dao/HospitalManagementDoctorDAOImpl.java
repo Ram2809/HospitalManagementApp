@@ -9,22 +9,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Logger;
 
 import com.revature.project.HospitalManagementApp.exception.DoctorNotFoundException;
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
-import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
 public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctorDAO {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static List<Integer> doctorIdList = new ArrayList<Integer>();
-	static Logger logger=Logger.getLogger("HospitalManagementDoctorDAOImpl.class");
+	static Logger logger = Logger.getLogger("HospitalManagementDoctorDAOImpl.class");
+
 	public void getDoctorId() throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			Statement st = con.createStatement();
@@ -60,12 +57,12 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 	public void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			System.out.println("Enter the doctor id:");
+			System.out.println("Enter the doctor id to update:");
 			Integer updateId = Integer.parseInt(br.readLine());
 			logger.info("In doctor DAO -> getDoctorId() method");
 			getDoctorId();
 			if (!doctorIdList.contains(updateId)) {
-		
+
 				throw new DoctorNotFoundException("Doctor Not found,Enter the valid doctor id!");
 			}
 			System.out.println("1.Update name");
@@ -155,7 +152,7 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			PreparedStatement pst = null;
 			String query = "DELETE FROM doctor WHERE doc_id=?";
 			pst = con.prepareStatement(query);
-			System.out.println("Enter the doctor id:");
+			System.out.println("Enter the doctor id to delete:");
 			Integer deleteId = Integer.parseInt(br.readLine());
 			logger.info("In doctor DAO -> getDoctorId() method");
 			getDoctorId();
@@ -187,20 +184,22 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 		}
 		return doctorsList;
 	}
-	public List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDocCenter) {
+
+	public List<HospitalManagementDoctorCenter> getParticularDoctorDetails(
+			HospitalManagementDoctorCenter hosDocCenter) {
 		List<HospitalManagementDoctorCenter> doctorList = new ArrayList<>();
 		try (Connection con = DBUtil.getConnection();) {
 			System.out.println("Enter the doctor id to fetch details:");
-			Integer userDocId=Integer.parseInt(br.readLine());
+			Integer userDocId = Integer.parseInt(br.readLine());
 			logger.info("In doctor DAO -> getDoctorId() method");
 			getDoctorId();
 			if (!doctorIdList.contains(userDocId)) {
-		
+
 				throw new DoctorNotFoundException("Doctor Not found,Enter the valid doctor id!");
 			}
 			String query = "SELECT * FROM doctor where doc_id=?";
 			PreparedStatement pst = con.prepareStatement(query);
-			pst.setInt(1,userDocId);
+			pst.setInt(1, userDocId);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				doctorList.add(new HospitalManagementDoctorCenter(rs.getInt(1), rs.getString(2), rs.getInt(3),
