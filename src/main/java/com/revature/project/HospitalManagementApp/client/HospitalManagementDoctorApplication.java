@@ -13,7 +13,6 @@ import com.revature.project.HospitalManagementApp.controller.HospitalManagementD
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.exception.NegativeNumberException;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
-import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 
 public class HospitalManagementDoctorApplication {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -60,19 +59,22 @@ public class HospitalManagementDoctorApplication {
 	public static void deleteDoctor() {
 		hosDocController.deleteDoctorDetails(hosDoctorCenter);
 	}
-	public static void getParticularDoctor()
-	{
-		List<HospitalManagementDoctorCenter> doctorList=new ArrayList<HospitalManagementDoctorCenter>();
-		doctorList=hosDocController.getParticularDoctorDetails(hosDoctorCenter);
-		Iterator<HospitalManagementDoctorCenter> doctorListIterator =doctorList.iterator();
+
+	public static void getParticularDoctor() {
+		List<HospitalManagementDoctorCenter> doctorList = new ArrayList<HospitalManagementDoctorCenter>();
+		doctorList = hosDocController.getParticularDoctorDetails(hosDoctorCenter);
+		System.out.println("------------Doctor Details---------------");
+		Iterator<HospitalManagementDoctorCenter> doctorListIterator = doctorList.iterator();
 		while (doctorListIterator.hasNext()) {
 			System.out.println(doctorListIterator.next());
 		}
 	}
+
 	public static void getDoctor() {
 		List<HospitalManagementDoctorCenter> doctorsList = new ArrayList<HospitalManagementDoctorCenter>();
 		doctorsList = hosDocController.getDoctorDetails(hosDoctorCenter);
-		Iterator<HospitalManagementDoctorCenter> doctorsListIterator =doctorsList.iterator();
+		System.out.println("------------Doctor Details---------------");
+		Iterator<HospitalManagementDoctorCenter> doctorsListIterator = doctorsList.iterator();
 		while (doctorsListIterator.hasNext()) {
 			System.out.println(doctorsListIterator.next());
 		}
@@ -90,9 +92,7 @@ public class HospitalManagementDoctorApplication {
 		System.out.println("----------5.Fetch particular doctor details-----------");
 		System.out.println("Enter your choice:");
 		Integer userChoice = Integer.parseInt(br.readLine());
-		//switch (userChoice) {
-		do {
-			switch (userChoice) {
+		switch (userChoice) {
 		case 1:
 			logger.info("In doctor controller -> add method");
 			insertDoctor();
@@ -116,6 +116,5 @@ public class HospitalManagementDoctorApplication {
 		default:
 			throw new InvalidChoiceException("Enter the valid choice!");
 		}
-	}while(userChoice<=5);
 	}
 }
