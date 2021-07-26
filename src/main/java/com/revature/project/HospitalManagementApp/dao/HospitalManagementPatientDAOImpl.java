@@ -13,17 +13,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import com.revature.project.HospitalManagementApp.exception.DoctorNotFoundException;
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.exception.InvalidIdException;
 import com.revature.project.HospitalManagementApp.exception.PatientNotFoundException;
+import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 import com.revature.project.HospitalManagementApp.model.HospitalManagementPatientCenter;
 import com.revature.project.HospitalManagementApp.util.DBUtil;
 
 public class HospitalManagementPatientDAOImpl implements HospitalManagementPatientDAO {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static List<Integer> patientIdList = new ArrayList<Integer>();
-
+	static Logger logger=Logger.getLogger("HospitalManagementPatientDAOImpl.class");
 	public void getPatientId() throws SQLException, IOException {
 		try (Connection con = DBUtil.getConnection();) {
 			Statement st = con.createStatement();
@@ -61,10 +64,9 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 	public void updatePatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
 		try (Connection con = DBUtil.getConnection();) {
 			PreparedStatement pst = null;
-			// long count=pst.executeUpdate();
-			// System.out.println(count+" "+"rows inserted!");
 			System.out.println("Enter the patient id:");
 			Integer updateId = Integer.parseInt(br.readLine());
+			logger.info("In patient DAO -> getPatientId() method");
 			getPatientId();
 			if (!patientIdList.contains(updateId)) {
 				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
@@ -158,6 +160,7 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 			pst = con.prepareStatement(query);
 			System.out.println("Enter the patient id:");
 			Integer deleteId = Integer.parseInt(br.readLine());
+			logger.info("In patient DAO -> getPatientId() method");
 			getPatientId();
 			if (!patientIdList.contains(deleteId)) {
 				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
@@ -173,28 +176,26 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 	}
 
 	public List<HospitalManagementPatientCenter> getPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
-		List<HospitalManagementPatientCenter> patientList = new ArrayList<>();
+		List<HospitalManagementPatientCenter> patientsList = new ArrayList<>();
 		try (Connection con = DBUtil.getConnection();) {
 			Statement st = con.createStatement();
 			String query = "SELECT * FROM patient";
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
-				patientList.add(new HospitalManagementPatientCenter(rs.getInt(1), rs.getString(2), rs.getString(3),
+				patientsList.add(new HospitalManagementPatientCenter(rs.getInt(1), rs.getString(2), rs.getString(3),
 						rs.getInt(4), rs.getString(5), rs.getString(6), rs.getLong(7), rs.getInt(8)));
-				// System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3)+"
-				// "+rs.getInt(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getLong(7)+"
-				// "+rs.getInt(8));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return patientList;
+		return patientsList;
 	}
 
 	public void getPatientReport(HospitalManagementPatientCenter hosPatientCenter) {
 		try (Connection con = DBUtil.getConnection();) {
 			System.out.println("Enter the patient ID to get report:");
 			Integer patientId = Integer.parseInt(br.readLine());
+			logger.info("In patient DAO -> getPatientId() method");
 			getPatientId();
 			if (!patientIdList.contains(patientId)) {
 				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
@@ -222,5 +223,29 @@ public class HospitalManagementPatientDAOImpl implements HospitalManagementPatie
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public List<HospitalManagementPatientCenter> getParticularPatientDetails(HospitalManagementPatientCenter hosPatientCenter) {
+		List<HospitalManagementPatientCenter> patientList = new ArrayList<>();
+		try (Connection con = DBUtil.getConnection();) {
+			System.out.println("Enter the patient id to fetch details:");
+			Integer userPatientId=Integer.parseInt(br.readLine());
+			logger.info("In patient DAO -> getPatientId() method");
+			getPatientId();
+			if (!patientIdList.contains(userPatientId)) {
+		
+				throw new PatientNotFoundException("Patient Not found,Enter the valid doctor id!");
+			}
+			String query = "SELECT * FROM patient where PId=?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1,userPatientId);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				patientList.add(new HospitalManagementPatientCenter(rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getInt(4), rs.getString(5), rs.getString(6), rs.getLong(7), rs.getInt(8)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return patientList;
 	}
 }

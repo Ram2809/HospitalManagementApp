@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.project.HospitalManagementApp.controller.HospitalManagementPatientController;
 import com.revature.project.HospitalManagementApp.exception.InvalidChoiceException;
 import com.revature.project.HospitalManagementApp.exception.NegativeNumberException;
@@ -61,49 +63,69 @@ public class HospitalManagementPatientApplication {
 	}
 
 	public static void getPatient() {
-		List<HospitalManagementPatientCenter> patientList = new ArrayList<HospitalManagementPatientCenter>();
+		List<HospitalManagementPatientCenter> patientsList = new ArrayList<HospitalManagementPatientCenter>();
 		System.out.println("------Retrieval--------------");
-		patientList = hosPatientController.getPatientDetails(hosPatientCenter);
-		Iterator<HospitalManagementPatientCenter> patientListIterator = patientList.iterator();
-		while (patientListIterator.hasNext()) {
-			System.out.println(patientListIterator.next());
+		patientsList = hosPatientController.getPatientDetails(hosPatientCenter);
+		Iterator<HospitalManagementPatientCenter> patientsListIterator = patientsList.iterator();
+		while (patientsListIterator.hasNext()) {
+			System.out.println(patientsListIterator.next());
 		}
 	}
 
 	public static void getPatientReport() {
 		hosPatientController.getPatientReport(hosPatientCenter);
 	}
-
+	private static void getParticularDoctor() {
+		List<HospitalManagementPatientCenter> patientList = new ArrayList<HospitalManagementPatientCenter>();
+		System.out.println("------------Patient Details---------------");
+		patientList = hosPatientController.getParticularPatientDetails(hosPatientCenter);
+		Iterator<HospitalManagementPatientCenter> patientListIterator = patientList.iterator();
+		while (patientListIterator.hasNext()) {
+			System.out.println(patientListIterator.next());
+		}
+	}
 	public static void main(String[] args)
 			throws InvalidChoiceException, NumberFormatException, IOException, NegativeNumberException {
 		// TODO Auto-generated method stub
+		Logger logger=Logger.getLogger(HospitalManagementPatientApplication.class);
 		System.out.println("----------PATIENT MANAGEMENT SYSTEM----------");
 		System.out.println("----------1.Insertion----------");
 		System.out.println("----------2.Updation----------");
 		System.out.println("----------3.Deletion----------");
 		System.out.println("----------4.Retrieval----------");
 		System.out.println("----------5.Patient Report----------");
+		System.out.println("----------6.Fetch particular patient details---------");
 		System.out.println("Enter your choice:");
 		Integer userChoice = Integer.parseInt(br.readLine());
 		switch (userChoice) {
 		case 1:
+			logger.info("In patient controller -> add method");
 			insertPatient();
 			break;
 		case 2:
+			logger.info("In patient controller -> update method");
 			updatePatient();
 			break;
 		case 3:
+			logger.info("In patient controller -> delete method");
 			deletePatient();
 			break;
 		case 4:
+			logger.info("In patient controller -> get method");
 			getPatient();
 			break;
 		case 5:
+			logger.info("In patient controller -> get patient report method");
 			getPatientReport();
+			break;
+		case 6:
+			logger.info("In patient controller -> getParticularPatientdetails method");
+			getParticularDoctor();
 			break;
 		default:
 			throw new InvalidChoiceException("Enter the valid choice!");
 		}
 	}
+
 
 }

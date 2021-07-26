@@ -1,5 +1,7 @@
 package com.revature.project.HospitalManagementApp.service;
 
+import java.util.List;
+
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 
 public interface HospitalManagementDoctorService {
@@ -9,5 +11,6 @@ public interface HospitalManagementDoctorService {
 
 	void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 
-	void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	List<HospitalManagementDoctorCenter> getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 }

@@ -9,6 +9,24 @@ public class HospitalManagementDoctorCenter {
 	private Integer fromTiming;
 	private Integer toTiming;
 
+	public HospitalManagementDoctorCenter() {
+		super();
+	}
+
+	public HospitalManagementDoctorCenter(Integer doctorId, String doctorName, Integer doctorAge,
+			String doctorQualification, String doctorSpecialization, Integer fromTiming, Integer toTiming,
+			Double doctorSalary) {
+		super();
+		this.doctorId = doctorId;
+		this.doctorName = doctorName;
+		this.doctorAge = doctorAge;
+		this.doctorQualification = doctorQualification;
+		this.doctorSpecialization = doctorSpecialization;
+		this.fromTiming = fromTiming;
+		this.toTiming = toTiming;
+		this.doctorSalary = doctorSalary;
+	}
+
 	public Double getDoctorSalary() {
 		return doctorSalary;
 	}
@@ -73,6 +91,14 @@ public class HospitalManagementDoctorCenter {
 
 	public void setToTiming(Integer toTiming) {
 		this.toTiming = toTiming;
+	}
+
+	@Override
+	public String toString() {
+		return "HospitalManagementDoctorCenter [doctorId=" + doctorId + ", doctorName=" + doctorName + ", doctorAge="
+				+ doctorAge + ", doctorQualification=" + doctorQualification + ", doctorSpecialization="
+				+ doctorSpecialization + ", fromTiming=" + fromTiming + ", toTiming=" + toTiming + ", doctorSalary="
+				+ doctorSalary + "]";
 	}
 
 }

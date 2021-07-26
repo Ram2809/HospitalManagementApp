@@ -1,5 +1,7 @@
 package com.revature.project.HospitalManagementApp.dao;
 
+import java.util.List;
+
 import com.revature.project.HospitalManagementApp.model.HospitalManagementDoctorCenter;
 
 public interface HospitalManagementDoctorDAO {
@@ -9,5 +11,6 @@ public interface HospitalManagementDoctorDAO {
 
 	void deleteDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 
-	void getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	List<HospitalManagementDoctorCenter> getDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 }
