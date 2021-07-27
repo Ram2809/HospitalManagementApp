@@ -2099,3 +2099,46 @@
 2021-07-26 23:02:29 INFO  HospitalManagementPatientApplication:112 - In patient controller -> get method
 2021-07-26 23:02:29 INFO  class:29 - In patient service - get method
 2021-07-26 23:02:29 INFO  class:30 - In patient DAO ->get method
+2021-07-27 09:13:22 INFO  HospitalManagementDoctorApplication:97 - In doctor controller -> add method
+2021-07-27 09:14:01 INFO  HospitalManagementDoctorController:15 - In doctor service - add method
+2021-07-27 09:14:01 INFO  class:15 - In doctor DAO -> add method
+2021-07-27 09:14:22 INFO  HospitalManagementDoctorApplication:101 - In doctor controller -> update method
+2021-07-27 09:14:22 INFO  HospitalManagementDoctorController:20 - In doctor service - update method
+2021-07-27 09:14:22 INFO  class:20 - In doctor DAO -> update method
+2021-07-27 09:14:51 INFO  HospitalManagementDoctorApplication:101 - In doctor controller -> update method
+2021-07-27 09:14:51 INFO  HospitalManagementDoctorController:20 - In doctor service - update method
+2021-07-27 09:14:51 INFO  class:20 - In doctor DAO -> update method
+2021-07-27 09:15:39 INFO  HospitalManagementDoctorApplication:97 - In doctor controller -> add method
+2021-07-27 09:15:56 INFO  HospitalManagementDoctorController:15 - In doctor service - add method
+2021-07-27 09:15:56 INFO  class:15 - In doctor DAO -> add method
+2021-07-27 09:16:20 INFO  HospitalManagementDoctorApplication:105 - In doctor controller -> delete method
+2021-07-27 09:16:20 INFO  HospitalManagementDoctorController:25 - In doctor service - delete method
+2021-07-27 09:16:20 INFO  class:25 - In doctor DAO -> delete method
+2021-07-27 09:16:49 INFO  HospitalManagementDoctorApplication:109 - In doctor controller -> get method
+2021-07-27 09:16:49 INFO  HospitalManagementDoctorController:30 - In doctor service - get method
+2021-07-27 09:16:49 INFO  class:30 - In doctor DAO -> get method
+2021-07-27 09:17:23 INFO  HospitalManagementDoctorApplication:113 - In doctor controller -> getParticularDoctordetails method
+2021-07-27 09:17:23 INFO  HospitalManagementDoctorController:36 - In doctor service - getParticularDoctorDetails method
+2021-07-27 09:17:23 INFO  class:36 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-27 09:18:00 INFO  HospitalManagementPatientApplication:100 - In patient controller -> add method
+2021-07-27 09:19:28 INFO  class:14 - In patient service - add method
+2021-07-27 09:19:28 INFO  class:15 - In patient DAO -> add method
+2021-07-27 09:20:16 INFO  HospitalManagementPatientApplication:104 - In patient controller -> update method
+2021-07-27 09:20:16 INFO  class:19 - In patient service - update method
+2021-07-27 09:20:16 INFO  class:20 - In patient DAO -> update method
+2021-07-27 09:20:23 INFO  class:65 - In patient DAO -> getPatientId() method
+2021-07-27 09:33:07 INFO  HospitalManagementPatientApplication:108 - In patient controller -> delete method
+2021-07-27 09:33:07 INFO  class:24 - In patient service - delete method
+2021-07-27 09:33:07 INFO  class:25 - In patient DAO -> delete method
+2021-07-27 09:33:17 INFO  class:159 - In patient DAO -> getPatientId() method
+2021-07-27 09:33:48 INFO  HospitalManagementPatientApplication:112 - In patient controller -> get method
+2021-07-27 09:33:48 INFO  class:29 - In patient service - get method
+2021-07-27 09:33:48 INFO  class:30 - In patient DAO ->get method
+2021-07-27 09:34:19 INFO  HospitalManagementPatientApplication:116 - In patient controller -> get patient report method
+2021-07-27 09:34:19 INFO  class:34 - In patient service - get patient report method
+2021-07-27 09:34:19 INFO  class:35 - In patient DAO -> get patient report method
+2021-07-27 09:34:25 INFO  class:194 - In patient DAO -> getPatientId() method
+2021-07-27 09:35:10 INFO  HospitalManagementPatientApplication:120 - In patient controller -> getParticularPatientdetails method
+2021-07-27 09:35:10 INFO  class:40 - In patient service - getParticularPatientDetails method
+2021-07-27 09:35:10 INFO  class:41 - In patient DAO ->getParticularPatientDetails method
+2021-07-27 09:35:17 INFO  class:230 - In patient DAO -> getPatientId() method
