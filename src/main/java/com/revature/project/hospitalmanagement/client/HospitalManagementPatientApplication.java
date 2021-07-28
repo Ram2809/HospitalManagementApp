@@ -123,7 +123,7 @@ public class HospitalManagementPatientApplication {
 				getParticularDoctor();
 				break;
 			case 7:
-				logger.info("Exists from patient application");
+				logger.info("Exits from patient application");
 				System.exit(0);
 				break;
 			default:

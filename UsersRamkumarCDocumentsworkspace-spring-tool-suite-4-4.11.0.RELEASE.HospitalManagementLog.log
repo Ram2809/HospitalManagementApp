@@ -2188,3 +2188,87 @@
 2021-07-27 23:49:42 INFO  HospitalManagementDoctorController:36 - In doctor service - getParticularDoctorDetails method
 2021-07-27 23:49:42 INFO  class:39 - In doctor DAO -> getParticularDoctorDetails method
 2021-07-27 23:50:00 INFO  HospitalManagementDoctorApplication:120 - Exits from doctor application
+2021-07-27 23:58:29 INFO  HospitalManagementPatientApplication:114 - In patient controller -> get method
+2021-07-27 23:58:29 INFO  class:30 - In patient service - get method
+2021-07-27 23:58:29 INFO  class:30 - In patient DAO ->get method
+2021-07-27 23:58:34 INFO  HospitalManagementPatientApplication:118 - In patient controller -> get patient report method
+2021-07-27 23:58:34 INFO  class:35 - In patient service - get patient report method
+2021-07-27 23:58:34 INFO  class:35 - In patient DAO -> get patient report method
+2021-07-27 23:58:56 INFO  class:194 - In patient DAO -> getPatientId() method
+2021-07-27 23:59:01 INFO  HospitalManagementPatientApplication:110 - In patient controller -> delete method
+2021-07-27 23:59:01 INFO  class:25 - In patient service - delete method
+2021-07-27 23:59:01 INFO  class:25 - In patient DAO -> delete method
+2021-07-27 23:59:05 INFO  class:159 - In patient DAO -> getPatientId() method
+2021-07-27 23:59:10 INFO  HospitalManagementPatientApplication:122 - In patient controller -> getParticularPatientdetails method
+2021-07-27 23:59:10 INFO  class:41 - In patient service - getParticularPatientDetails method
+2021-07-27 23:59:10 INFO  class:41 - In patient DAO ->getParticularPatientDetails method
+2021-07-27 23:59:13 INFO  class:230 - In patient DAO -> getPatientId() method
+2021-07-28 09:13:38 INFO  HospitalManagementDoctorApplication:99 - In doctor controller -> add method
+2021-07-28 10:08:57 INFO  class:15 - In doctor service - add method
+2021-07-28 10:08:57 INFO  class:17 - In doctor DAO -> add method
+2021-07-28 10:09:08 INFO  HospitalManagementDoctorApplication:103 - In doctor controller -> update method
+2021-07-28 10:09:08 INFO  class:20 - In doctor service - update method
+2021-07-28 10:09:08 INFO  class:22 - In doctor DAO -> update method
+2021-07-28 10:09:20 INFO  HospitalManagementDoctorApplication:107 - In doctor controller -> delete method
+2021-07-28 10:09:20 INFO  class:25 - In doctor service - delete method
+2021-07-28 10:09:20 INFO  class:27 - In doctor DAO -> delete method
+2021-07-28 10:09:27 INFO  HospitalManagementDoctorApplication:111 - In doctor controller -> get method
+2021-07-28 10:09:27 INFO  class:30 - In doctor service - get method
+2021-07-28 10:09:27 INFO  class:32 - In doctor DAO -> get method
+2021-07-28 10:09:41 INFO  HospitalManagementDoctorApplication:115 - In doctor controller -> getParticularDoctordetails method
+2021-07-28 10:09:41 INFO  class:36 - In doctor service - getParticularDoctorDetails method
+2021-07-28 10:09:41 INFO  class:38 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-28 10:09:56 INFO  HospitalManagementDoctorApplication:103 - In doctor controller -> update method
+2021-07-28 10:09:56 INFO  class:20 - In doctor service - update method
+2021-07-28 10:09:56 INFO  class:22 - In doctor DAO -> update method
+2021-07-28 10:10:23 INFO  HospitalManagementDoctorApplication:99 - In doctor controller -> add method
+2021-07-28 10:10:39 INFO  class:15 - In doctor service - add method
+2021-07-28 10:10:39 INFO  class:17 - In doctor DAO -> add method
+2021-07-28 10:10:46 INFO  HospitalManagementDoctorApplication:107 - In doctor controller -> delete method
+2021-07-28 10:10:46 INFO  class:25 - In doctor service - delete method
+2021-07-28 10:10:46 INFO  class:27 - In doctor DAO -> delete method
+2021-07-28 10:10:58 INFO  HospitalManagementDoctorApplication:115 - In doctor controller -> getParticularDoctordetails method
+2021-07-28 10:10:58 INFO  class:36 - In doctor service - getParticularDoctorDetails method
+2021-07-28 10:10:58 INFO  class:38 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-28 10:11:10 INFO  HospitalManagementDoctorApplication:119 - Exits from doctor application
+2021-07-28 10:14:40 INFO  HospitalManagementPatientApplication:118 - In patient controller -> get patient report method
+2021-07-28 10:14:40 INFO  class:35 - In patient service - get patient report method
+2021-07-28 10:14:40 INFO  class:35 - In patient DAO -> get patient report method
+2021-07-28 10:15:07 INFO  class:194 - In patient DAO -> getPatientId() method
+2021-07-28 10:16:31 INFO  HospitalManagementPatientApplication:126 - Exists from patient application
+2021-07-28 13:27:28 INFO  HospitalManagementDoctorApplication:115 - In doctor controller -> getParticularDoctordetails method
+2021-07-28 13:27:28 INFO  class:36 - In doctor service - getParticularDoctorDetails method
+2021-07-28 13:27:28 INFO  class:38 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-28 13:27:42 INFO  HospitalManagementDoctorApplication:111 - In doctor controller -> get method
+2021-07-28 13:27:42 INFO  class:30 - In doctor service - get method
+2021-07-28 13:27:42 INFO  class:32 - In doctor DAO -> get method
+2021-07-28 13:27:50 INFO  HospitalManagementDoctorApplication:119 - Exits from doctor application
+2021-07-28 14:14:29 INFO  HospitalManagementDoctorApplication:99 - In doctor controller -> add method
+2021-07-28 14:15:01 INFO  class:15 - In doctor service - add method
+2021-07-28 14:15:01 INFO  class:17 - In doctor DAO -> add method
+2021-07-28 14:15:12 INFO  HospitalManagementDoctorApplication:99 - In doctor controller -> add method
+2021-07-28 14:15:32 INFO  class:15 - In doctor service - add method
+2021-07-28 14:15:32 INFO  class:17 - In doctor DAO -> add method
+2021-07-28 14:15:52 INFO  HospitalManagementDoctorApplication:103 - In doctor controller -> update method
+2021-07-28 14:15:52 INFO  class:20 - In doctor service - update method
+2021-07-28 14:15:52 INFO  class:22 - In doctor DAO -> update method
+2021-07-28 14:16:43 INFO  HospitalManagementDoctorApplication:103 - In doctor controller -> update method
+2021-07-28 14:16:43 INFO  class:20 - In doctor service - update method
+2021-07-28 14:16:43 INFO  class:22 - In doctor DAO -> update method
+2021-07-28 14:17:05 INFO  HospitalManagementDoctorApplication:107 - In doctor controller -> delete method
+2021-07-28 14:17:05 INFO  class:25 - In doctor service - delete method
+2021-07-28 14:17:05 INFO  class:27 - In doctor DAO -> delete method
+2021-07-28 14:17:37 INFO  HospitalManagementDoctorApplication:111 - In doctor controller -> get method
+2021-07-28 14:17:37 INFO  class:30 - In doctor service - get method
+2021-07-28 14:17:37 INFO  class:32 - In doctor DAO -> get method
+2021-07-28 14:17:52 INFO  HospitalManagementDoctorApplication:115 - In doctor controller -> getParticularDoctordetails method
+2021-07-28 14:17:52 INFO  class:36 - In doctor service - getParticularDoctorDetails method
+2021-07-28 14:17:52 INFO  class:38 - In doctor DAO -> getParticularDoctorDetails method
+2021-07-28 14:18:18 INFO  HospitalManagementDoctorApplication:119 - Exits from doctor application
+2021-07-28 14:18:56 INFO  HospitalManagementPatientApplication:118 - In patient controller -> get patient report method
+2021-07-28 14:18:56 INFO  class:35 - In patient service - get patient report method
+2021-07-28 14:18:56 INFO  class:35 - In patient DAO -> get patient report method
+2021-07-28 14:19:16 INFO  class:194 - In patient DAO -> getPatientId() method
+2021-07-28 14:19:34 INFO  HospitalManagementPatientApplication:126 - Exits from patient application
+2021-07-28 14:21:52 INFO  class:15 - In doctor service - add method
+2021-07-28 14:21:52 INFO  class:17 - In doctor DAO -> add method
