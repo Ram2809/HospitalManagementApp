@@ -2272,3 +2272,5 @@
 2021-07-28 14:19:34 INFO  HospitalManagementPatientApplication:126 - Exits from patient application
 2021-07-28 14:21:52 INFO  class:15 - In doctor service - add method
 2021-07-28 14:21:52 INFO  class:17 - In doctor DAO -> add method
+2021-07-28 21:08:29 INFO  class:15 - In doctor service - add method
+2021-07-28 21:08:29 INFO  class:17 - In doctor DAO -> add method

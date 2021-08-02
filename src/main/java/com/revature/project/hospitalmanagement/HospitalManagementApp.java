@@ -3,6 +3,7 @@ package com.revature.project.hospitalmanagement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 import com.revature.project.hospitalmanagement.client.HospitalManagementDoctorApplication;
@@ -17,12 +18,13 @@ public class HospitalManagementApp {
 		HospitalManagementDoctorApplication hosDoctorApp = new HospitalManagementDoctorApplication();
 		HospitalManagementPatientApplication hosPatientApp = new HospitalManagementPatientApplication();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		//Scanner sc=new Scanner(System.in);
 		logger.info("In HospitalManagement App");
 		System.out.println("============HOSPITAL MANAGEMENT SYSTEM============\n");
 		System.out.println("============1.DOCTOR MANAGEMENT SYSTEM=============");
 		System.out.println("============2.PATIENT MANAGEMENT SYSTEM============");
 		System.out.println("Enter your choice:");
-		int userChoice = Integer.parseInt(bufferedReader.readLine());
+		int userChoice =Integer.parseInt(bufferedReader.readLine());
 		switch (userChoice) {
 		case 1:
 			logger.info("In doctor application");

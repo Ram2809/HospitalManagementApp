@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+//import org.apache.log4j.Logger;
+
 import com.revature.project.hospitalmanagement.model.HospitalManagementDoctorCenter;
 import com.revature.project.hospitalmanagement.service.HospitalManagementDoctorServiceImpl;
 

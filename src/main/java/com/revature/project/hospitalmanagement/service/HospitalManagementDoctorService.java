@@ -5,7 +5,7 @@ import java.util.List;
 import com.revature.project.hospitalmanagement.model.HospitalManagementDoctorCenter;
 
 public interface HospitalManagementDoctorService {
-	void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
+	public abstract void addDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 
 	void updateDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 
@@ -15,3 +15,4 @@ public interface HospitalManagementDoctorService {
 
 	List<HospitalManagementDoctorCenter> getParticularDoctorDetails(HospitalManagementDoctorCenter hosDocCenter);
 }
+p

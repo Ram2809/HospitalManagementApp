@@ -29,17 +29,17 @@ class HospitalManagementDoctorDAOTest {
 
 	static HospitalManagementDoctorCenter hosDocCenter = new HospitalManagementDoctorCenter();
 	static HospitalManagementDoctorApplication hosDocApp = new HospitalManagementDoctorApplication();
-	HospitalManagementDoctorDAOImpl hosDocDAOImpl;
+	HospitalManagementDoctorDAOImpl hosDocDAOImpl=new HospitalManagementDoctorDAOImpl();
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	@BeforeEach
 	void setUp() throws Exception {
-		hosDocDAOImpl = new HospitalManagementDoctorDAOImpl();
+		//hosDocDAOImpl = new HospitalManagementDoctorDAOImpl();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		hosDocDAOImpl = null;
+		//hosDocDAOImpl = null;
 	}
 
 	@Test
@@ -143,7 +143,7 @@ class HospitalManagementDoctorDAOTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		assertNotSame(beforeCount, afterCount);
+		assertNotEquals(beforeCount, afterCount);
 	}
 
 	@Test

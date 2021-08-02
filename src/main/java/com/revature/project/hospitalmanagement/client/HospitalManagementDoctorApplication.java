@@ -49,6 +49,7 @@ public class HospitalManagementDoctorApplication {
 		hosDoctorCenter.setFromTiming(timingFrom);
 		hosDoctorCenter.setToTiming(timingTo);
 		hosDoctorCenter.setDoctorSalary(salary);
+		
 		hosDocController.addDoctorDetails(hosDoctorCenter);
 	}
 
@@ -83,7 +84,7 @@ public class HospitalManagementDoctorApplication {
 	public static void main(String[] args)
 			throws NumberFormatException, IOException, InvalidChoiceException, NegativeNumberException {
 		// TODO Auto-generated method stub
-		Logger logger = Logger.getLogger(HospitalManagementDoctorApplication.class);
+		Logger logger = Logger.getLogger("HospitalManagementDoctorApplication.class");
 		while (true) {
 			System.out.println("----------DOCTOR MANAGEMENT SYSTEM----------");
 			System.out.println("----------1.Insertion----------");

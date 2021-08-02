@@ -62,7 +62,6 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			logger.info("In doctor DAO -> getDoctorId() method");
 			getDoctorId();
 			if (!doctorIdList.contains(updateId)) {
-
 				throw new DoctorNotFoundException("Doctor Not found,Enter the valid doctor id!");
 			}
 			System.out.println("1.Update name");
@@ -161,7 +160,7 @@ public class HospitalManagementDoctorDAOImpl implements HospitalManagementDoctor
 			}
 			pst.setInt(1, deleteId);
 			pst.executeUpdate();
-			getDoctorId();
+			//getDoctorId();
 			System.out.println("Rows Deleted!");
 		} catch (Exception e) {
 			e.printStackTrace();
